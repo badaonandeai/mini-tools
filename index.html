@@ -1,1 +1,34 @@
-
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>在线木鱼</title>
+<style>
+*{margin:0;padding:0}
+body{height:100vh;background:#f8f3eb;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:"宋体",serif}
+h1{font-weight:normal;letter-spacing:4px;color:#5c4b3e}
+#woodfish{width:220px;height:220px;background:#8b572a;border-radius:50%;margin:40px 0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;cursor:pointer;user-select:none}
+#woodfish:active{transform:scale(0.92)}
+#count{font-size:24px;color:#664c3a}
+</style>
+</head>
+<body>
+<h1>静心木鱼</h1>
+<div id="woodfish">敲</div>
+<div>敲击次数：<span id="count">0</span></div>
+<audio id="sound" src="https://assets.mixkit.co/sfx/preview/mixkit-small-bell-tinkle-1140.mp3">
+<script>
+const fish = document.getElementById('woodfish');
+const audio = document.getElementById('sound');
+const countDom = document.getElementById('count');
+let num = 0;
+fish.onclick = ()=>{
+    num++;
+    countDom.innerText = num;
+    audio.currentTime = 0;
+    audio.play();
+}
+</script>
+</body>
+</html>
